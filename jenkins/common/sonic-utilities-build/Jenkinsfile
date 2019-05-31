@@ -80,12 +80,12 @@ sudo umount docker-sonic-vs/python-debs
 sudo umount docker-sonic-vs/python-wheels
 cd ../../../
 
-docker save docker-sonic-vs | gzip -c > buildimage/target/docker-sonic-vs.gz
-
-git clone https://github.com/Azure/sonic-swss
-
-cd sonic-swss/tests
-sudo py.test -v
+#docker save docker-sonic-vs | gzip -c > buildimage/target/docker-sonic-vs.gz
+#
+#git clone https://github.com/Azure/sonic-swss
+#
+#cd sonic-swss/tests
+#sudo py.test -v
 '''
             }
         }
