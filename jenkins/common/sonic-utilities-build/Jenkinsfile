@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
                 sh '''
 #!/bin/bash -xe
@@ -43,6 +43,14 @@ sudo python setup.py --command-packages=stdeb.command bdist_deb
 EOF
 
 chmod 755 build_sonic_utilities.sh
+
+'''
+            }
+        }
+        stage('Build') {
+            steps {
+                sh '''
+#!/bin/bash -xe
 
 # Build sonic-utilities and copy resulting Debian package
 docker run --rm=true --privileged -v $(pwd):/sonic -w /sonic -i sonic-slave-johnar ./build_sonic_utilities.sh
@@ -87,7 +95,7 @@ cd ../
 #
 #cd sonic-swss/tests
 #sudo py.test -v
-'''
+                '''
             }
         }
     }
