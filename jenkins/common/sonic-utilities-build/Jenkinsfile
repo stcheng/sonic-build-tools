@@ -12,9 +12,9 @@ pipeline {
                           submoduleCfg: [],
                           userRemoteConfigs: [[url: 'https://github.com/Azure/sonic-utilities']]])
                 copyArtifacts(projectName: 'sonic-swss-common-build', filter: '**/*.deb', target: 'swss-common', flatten: true)
-                copyArtifacts(projectName: '../vs/sonic-swss-build', filter: '**/*.deb', target: 'swss', flatten: true)
-                copyArtifacts(projectName: 'vs/sonic-sairedis-build', filter: '**/*.deb', target: 'sairedis', flatten: true)
-                copyArtifacts(projectName: 'vs/buildimage-vs-all', filter: '**/*', target: 'buildimage', flatten: false)
+#                copyArtifacts(projectName: '../vs/sonic-swss-build', filter: '**/*.deb', target: 'swss', flatten: true)
+#                copyArtifacts(projectName: 'vs/sonic-sairedis-build', filter: '**/*.deb', target: 'sairedis', flatten: true)
+#                copyArtifacts(projectName: '../vs/buildimage-vs-all', filter: '**/*', target: 'buildimage', flatten: false)
             }
         }
 
@@ -51,13 +51,13 @@ chmod 755 build_sonic_utilities.sh
 docker run --rm=true --privileged -v $(pwd):/sonic -w /sonic -i sonic-slave-johnar ./build_sonic_utilities.sh
 cp sonic-utilities/deb_dist/python-sonic-utilities_*.deb buildimage/target/python-debs/
 
-cd sairedis
-cp *.deb ../buildimage/target/debs/
-cd ../
+#cd sairedis
+#cp *.deb ../buildimage/target/debs/
+#cd ../
 
-cd swss
-cp *.deb ../buildimage/target/debs/
-cd ../
+#cd swss
+#cp *.deb ../buildimage/target/debs/
+#cd ../
 
 cd swss-common
 cp *.deb ../buildimage/target/debs/
