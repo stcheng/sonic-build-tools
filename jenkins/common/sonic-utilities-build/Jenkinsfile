@@ -60,7 +60,7 @@ cp buildimage/target/files/stretch/* buildimage/target/files/
 #cd ../
 
 cd swss-common
-cp *.deb ../buildimage/target/debs/
+cp *.deb ../buildimage/target/debs/stretch/
 cd ../
 
 
@@ -69,8 +69,8 @@ cd ../
 #mkdir -p docker-sonic-vs/files
 #mkdir -p docker-sonic-vs/python-debs
 #mkdir -p docker-sonic-vs/python-wheels
-#sudo mount --bind ../../target/debs docker-sonic-vs/debs
-#sudo mount --bind ../../target/files docker-sonic-vs/files
+#sudo mount --bind ../../target/stretch/debs docker-sonic-vs/debs
+#sudo mount --bind ../../target/stretch/files docker-sonic-vs/files
 #sudo mount --bind ../../target/python-debs docker-sonic-vs/python-debs
 #sudo mount --bind ../../target/python-wheels docker-sonic-vs/python-wheels
 #docker load < ../../target/docker-config-engine-stretch.gz
