@@ -49,6 +49,8 @@ chmod 755 build_sonic_utilities.sh
 docker run --rm=true --privileged -v $(pwd):/sonic -w /sonic -i sonic-slave-johnar ./build_sonic_utilities.sh
 cp sonic-utilities/deb_dist/python-sonic-utilities_*.deb buildimage/target/python-debs/
 
+cp buildimage/target/debs/stretch/* buildimage/target/debs/
+
 #cd sairedis
 #cp *.deb ../buildimage/target/debs/
 #cd ../
@@ -60,6 +62,7 @@ cp sonic-utilities/deb_dist/python-sonic-utilities_*.deb buildimage/target/pytho
 cd swss-common
 cp *.deb ../buildimage/target/debs/
 cd ../
+
 
 cd buildimage/platform/vs
 mkdir -p docker-sonic-vs/debs
