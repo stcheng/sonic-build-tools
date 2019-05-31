@@ -49,6 +49,7 @@ docker run --rm=true --privileged -v $(pwd):/sonic -w /sonic -i sonic-slave-john
 cp sonic-utilities/deb_dist/python-sonic-utilities_*.deb buildimage/target/python-debs/
 
 cp buildimage/target/debs/stretch/* buildimage/target/debs/
+cp buildimage/target/files/stretch/* buildimage/target/files/
 
 #cd sairedis
 #cp *.deb ../buildimage/target/debs/
@@ -80,12 +81,12 @@ sudo umount docker-sonic-vs/python-debs
 sudo umount docker-sonic-vs/python-wheels
 cd ../../../
 
-#docker save docker-sonic-vs | gzip -c > buildimage/target/docker-sonic-vs.gz
-#
-#git clone https://github.com/Azure/sonic-swss
-#
-#cd sonic-swss/tests
-#sudo py.test -v
+docker save docker-sonic-vs | gzip -c > buildimage/target/docker-sonic-vs.gz
+
+git clone https://github.com/Azure/sonic-swss
+
+cd sonic-swss/tests
+sudo py.test -v
 '''
             }
         }
